@@ -1,0 +1,50 @@
+/* CSS cho form */
+  /* CSS cho tiêu đề "Sign Up" */
+  .form h1 {
+    margin-bottom: 20px; /* Khoảng cách dưới của tiêu đề */
+    text-align: center; /* Căn giữa tiêu đề */
+    font-size: 1.5em; /* Đặt kích thước của font là 1.5em (có thể điều chỉnh theo nhu cầu) */
+    font-weight: bold; /* Đặt độ đậm của font là bold */
+    color: #ffffff;
+  }
+  
+  /* CSS cho phần thông báo "Already have an account?" */
+
+  
+  /* CSS cho liên kết "Sign in here" */
+  .form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    margin: 0 auto; /* Căn giữa form */
+    padding: 20px; /* Khoảng cách nội dung và viền */
+    border-radius: 8px; /* Bo tròn góc của form */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho form */
+  }
+  
+  /* CSS cho input fields */
+  .form input{
+    padding: 20px;
+    background-color: var(--bg);
+    color: var(--textColor);
+    border: none;
+    border-radius: 5px;
+  }
+  
+  /* CSS cho nút "Sign Up" */
+  .submitButton {
+    width: 100%; /* Độ rộng của nút */
+    padding: 10px; /* Khoảng cách giữa nội dung và viền */
+    background-color: #007bff; /* Màu nền của nút */
+    color: #fff; /* Màu chữ của nút */
+    border: none; /* Loại bỏ viền của nút */
+    border-radius: 4px; /* Bo tròn góc của nút */
+    cursor: pointer; /* Con trỏ chuột khi di chuột qua */
+  }
+  
+  /* CSS cho hover qua nút "Sign Up" */
+  .submitButton:hover {
+    background-color: #0056b3; /* Màu nền của nút khi hover */
+  }
+  
