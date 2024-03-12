@@ -1,0 +1,11 @@
+.heading {
+text-align: center;
+ font-family: 'Segoe UI',
+  Tahoma, Geneva, Verdana,
+   sans-serif; font-size: 2.5rem;
+    color: #000810; 
+    text-shadow: 2px 2px 4px #AAAAAA;
+     letter-spacing: 1px; 
+     margin-top: 20px;
+      margin-bottom: 20px;
+}
