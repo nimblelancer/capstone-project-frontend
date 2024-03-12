@@ -7,14 +7,13 @@ import Testimonial from "@/components/Testimonial";
 
 export const metadata: Metadata = {
   title: "Health Website For Everyone",
-  description: "This is Home Page!",
+  icons: "./favicon.ico"
   // other metadata
 };
 
 export default function Home() {
   return (
     <main>
-
       <Feature />
       <Testimonial />
       <About />
