@@ -1,0 +1,18 @@
+/* components/BasicInfoCard.module.css */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    display: inline-block; /* or flex, depending on layout */
+    width: calc(50% - 20px); /* Example for 2 cards per row, adjust margins accordingly */
+  }
+  
+  .card img {
+    width: 50px; /* Set a fixed width */
+    height: 50px; /* Set a fixed height */
+    object-fit: cover; /* Cover the area without losing the aspect ratio */
+    margin-bottom: 10px;
+  }
+  
