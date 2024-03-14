@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  align-items: center;
+  /* căn giữa theo chiều dọc */
+  height: 100vh;
+  /* chiều cao của container bằng toàn bộ chiều cao của màn hình */
+  background: linear-gradient(to right, rgb(18, 161, 221), #ffffff);
+}
+
+.leftContent {
+  width: 50%;
+  /* chiều rộng của leftContent là 50% của container */
+  text-align: center;
+  /* căn giữa văn bản */
+}
+
+.rightContent {
+  padding-left: 10px;
+  width: 50%;
+  /* chiều rộng của rightContent là 50% của container */
+}
+
+.formWrapper {
+  width: 50%;
+  margin-left: 100px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Shadow */
+  border: 1px solid #ccc;
+  /* Border */
+  padding: 20px;
+  /* Thêm padding nếu cần */
+}
+.leftContent p {
+  font-size: 2.0rem; /* Đặt kích thước của font là 1.5em (có thể điều chỉnh theo nhu cầu) */
+  color: white; /* Đặt màu của font là màu trắng */
+}

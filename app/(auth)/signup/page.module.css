@@ -1,0 +1,14 @@
+/* CSS cho container */
+.container {
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    height: 100vh; /* Chiều cao bằng với chiều cao của màn hình */
+    background: linear-gradient(to right, rgb(18, 161, 221), #ffffff);
+  }
+  
+  /* CSS cho nội dung được căn giữa */
+  .centeredContent {
+    width: 400px; /* Độ rộng của nội dung */
+  }
+  
