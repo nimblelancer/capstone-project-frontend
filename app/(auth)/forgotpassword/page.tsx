@@ -1,5 +1,5 @@
 import React from 'react'
-import FgpForm from '@/components/fgpForm/fgpForm'
+import FgpForm from '@/components/ForgotPassword/fgpForm'
 import styles from './page.module.css'; // Import CSS module for styling
 const page = () => {
   return (

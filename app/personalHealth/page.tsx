@@ -1,8 +1,8 @@
 "use client";
 import Head from "next/head";
-import HumanBodyImage from "@/component/HumanBodyImage/HumanBodyImage";
+import HumanBodyImage from "@/components/PersonalHealth/HumanBodyImage/HumanBodyImage";
 import { useState } from "react";
-import BasicInfoCard from "@/component/basicInfoCard/basicInfoCard";
+import BasicInfoCard from "@/components/PersonalHealth/basicInfoCard/basicInfoCard";
 import styles from './personalHealth.module.css';
 const healthData = [
   {

@@ -5,7 +5,7 @@ const SigninForm = () => {
   return (
     <form className={styles.form}>
       <h1>Sign In</h1>
-      <Link href="/signup">
+      <Link href="/signUp">
         {"New User?"} <b>Create an account</b>
       </Link>
       <input type="text" placeholder="username" name="username" />

@@ -1,5 +1,5 @@
 import React from 'react';
-import SigninForm from '@/components/signinForm/signinForm';
+import SigninForm from '@/components/SignInForm/signinForm';
 import styles from './page.module.css'; // Import CSS module for styling
 
 const Page = () => {
