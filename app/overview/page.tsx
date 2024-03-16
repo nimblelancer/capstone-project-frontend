@@ -3,7 +3,8 @@ import Head from "next/head";
 import HumanBodyImage from "@/components/Overview/HumanBodyImage/HumanBodyImage";
 import { useState } from "react";
 import BasicInfoCard from "@/components/Overview/basicInfoCard/basicInfoCard";
-import styles from './overview.module.css';
+import Navbar from "@/components/Overview/Navbar/Navbar";
+import styles from "./overview.module.css";
 const healthData = [
   {
     title: "Blood Sugar",
@@ -83,33 +84,31 @@ const Overview = () => {
           </li>
         </ol>
       </nav> */}
+      <Navbar />
 
-      
       <div className={styles.splitcontainer}>
-        
-          {/* First Half Part */}
-          <div className={styles.leftside}>
-            <h1 className= {styles.h1}>Hi,User Name</h1>
-            <h2 className={styles.titleofhealthinfo}>Your Health Information</h2>
-            <div className="health-info">
-              {healthData.map((data, index) => (
-                <BasicInfoCard
-                  key={index}
-                  title={data.title}
-                  icon={data.icon}
-                  value={data.value}
-                  unit={data.unit}
-                />
-              ))}
-            </div>
-          </div>
-          {/* Second half part - Human Body Image */}
-          <div className={styles.rightside}> 
-            <HumanBodyImage />
+        {/* First Half Part */}
+        <div className={styles.leftside}>
+          <h1 className={styles.h1}>Hi,User Name</h1>
+          <h2 className={styles.titleofhealthinfo}>Your Health Information</h2>
+          <div className="health-info">
+            {healthData.map((data, index) => (
+              <BasicInfoCard
+                key={index}
+                title={data.title}
+                icon={data.icon}
+                value={data.value}
+                unit={data.unit}
+              />
+            ))}
           </div>
         </div>
+        {/* Second half part - Human Body Image */}
+        <div className={styles.rightside}>
+          <HumanBodyImage />
+        </div>
+      </div>
     </div>
-    
   );
 };
 

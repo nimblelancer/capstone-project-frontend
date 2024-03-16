@@ -18,11 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`dark:bg-black ${inter.className}`}>
-          <Lines />
-          <Header />
-          <ToasterContext />
-          {children}
-          <Footer />
+        <Lines />
+        <Header />
+        <ToasterContext />
+        {children}
+        <Footer />
       </body>
     </html>
   );
