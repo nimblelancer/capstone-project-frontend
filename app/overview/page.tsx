@@ -1,10 +1,9 @@
 "use client";
-import Head from "next/head";
 import HumanBodyImage from "@/components/Overview/HumanBodyImage/HumanBodyImage";
 import { useState } from "react";
 import BasicInfoCard from "@/components/Overview/basicInfoCard/basicInfoCard";
 import Navbar from "@/components/Overview/Navbar/Navbar";
-import styles from "./overview.module.css";
+import overviewStyles from "./overview.module.css";
 const healthData = [
   {
     title: "Blood Sugar",
@@ -68,43 +67,43 @@ const Overview = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Overview Page</title>
-      </Head>
-
-      {/* Breadcrumb
-      <nav aria-label="breadcrumb">
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item">
-            <a href="/">Home</a>
-          </li>
-          <li className="breadcrumb-item active" aria-current="page">
-            Overview
-          </li>
-        </ol>
-      </nav> */}
+    <div>
       <Navbar />
 
-      <div className={styles.splitcontainer}>
-        {/* First Half Part */}
-        <div className={styles.leftside}>
-          <h1 className={styles.h1}>Hi,User Name</h1>
-          <h2 className={styles.titleofhealthinfo}>Your Health Information</h2>
-          <div className="health-info">
-            {healthData.map((data, index) => (
-              <BasicInfoCard
-                key={index}
-                title={data.title}
-                icon={data.icon}
-                value={data.value}
-                unit={data.unit}
-              />
+      <div className={overviewStyles.overviewContainer}>
+        <div className={overviewStyles.basicInforPart}>
+          <h2 className={overviewStyles.titleOfHealthInfo}>
+            Your Health Information
+          </h2>
+          <div className={overviewStyles.gridHealthInfo}>
+            {[0, 1].map((evenOdd) => (
+              <div style={{ width: "50%" }} key={evenOdd}>
+                {healthData.map((data, index) => {
+                  if (index % 2 === evenOdd) {
+                    return (
+                      <div
+                        key={index}
+                        style={{
+                          marginBottom: "20px",
+                        }}
+                      >
+                        <BasicInfoCard
+                          title={data.title}
+                          icon={data.icon}
+                          value={data.value}
+                          unit={data.unit}
+                        />
+                      </div>
+                    );
+                  } else {
+                    return null;
+                  }
+                })}
+              </div>
             ))}
           </div>
         </div>
-        {/* Second half part - Human Body Image */}
-        <div className={styles.rightside}>
+        <div className={overviewStyles.humanBody3DImage}>
           <HumanBodyImage />
         </div>
       </div>
