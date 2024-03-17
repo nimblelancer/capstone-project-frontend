@@ -5,10 +5,10 @@ import Header from "@/components/Header";
 import Lines from "@/components/Introduction/Lines";
 import { ThemeProvider } from "next-themes";
 import { Inter } from "next/font/google";
-import "../globals.css";
+import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
-import ToasterContext from "../context/ToastContext";
+import ToasterContext from "@/components/Introduction/context/ToastContext";
 
 export default function RootLayout({
   children,
