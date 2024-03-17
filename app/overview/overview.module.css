@@ -21,9 +21,11 @@
 .gridHealthInfo {
   width: 100%;
   display: flex;
+  margin-left: 30px;
 }
 
 /* Human body 3D image */
 .humanBody3DImage {
+  margin-right: 30px;
   width: 50%;
 }
