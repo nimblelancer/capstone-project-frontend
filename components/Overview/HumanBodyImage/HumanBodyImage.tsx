@@ -1,11 +1,7 @@
 import React, {Suspense} from "react";
-// //Import the THREE.js library
-import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";;
 import { useGLTF } from "@react-three/drei";
 import { OrbitControls } from "@react-three/drei";
-import Image from 'next/image'; // Importing Image component
-import ThreeDModelComponent from '../ThreeDModel';
 import styles from  './HumanBodyImage.module.css';
 function Model() {
   const gltf = useGLTF("/scene.gltf");
@@ -20,7 +16,7 @@ const HumanBodyImage = () => {
     <div>
       <h1 className={styles.heading}>Disease Diagnosis By AI</h1>
       <h2 className={styles.subHeading}>
-        Please choose your hurting part and write all symptoms in popup chat.
+      <span className={styles.startOfLine}>Please</span> choose your hurting part and write all symptoms in popup chat.
         By analyzing symptoms and considering the affected body area, AI can
         provide valuable insights into potential diseases and help healthcare
         professionals make more accurate diagnoses.
@@ -28,7 +24,12 @@ const HumanBodyImage = () => {
       <div style={{ height: 700, width: "100%" }}>
         <Canvas camera={{ position: [0, 0, 10], fov: 10 }}>
           <ambientLight intensity={0.8} />
-          <OrbitControls />
+          <OrbitControls
+           enableZoom={false} // Disable zooming
+           enablePan={false} // Disable panning
+           minPolarAngle={0} // Limit vertical rotation
+           maxPolarAngle={Math.PI / 2} 
+           />
           <directionalLight position={[10, 10, 5]} intensity={1} />
           <Suspense fallback={null}>
             <Model />
