@@ -7,11 +7,13 @@
 
 .overviewContainer {
   width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
   display: flex;
 }
 
 /* Styles for the basic information part */
-.basicInforPart {
+.basicInfoPart {
   margin-right: 10px;
   width: 50%;
   height: 1000px;

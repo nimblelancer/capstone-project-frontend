@@ -80,7 +80,7 @@ function ResponsiveAppBar() {
                 textDecoration: "none",
               }}
             >
-              <img src="./favicon.ico" alt="Logo" style={{ height: 40 }} />
+              <img src="/images/logo/medic.png" alt="Logo" style={{ height: 40 }} />
             </Typography>
             <Box
               sx={{ flexGrow: 1, display: "flex", justifyContent: "center" }}
