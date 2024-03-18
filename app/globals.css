@@ -9,5 +9,10 @@
 }
 
 :root {
-  --main-background: rgb(18, 161, 221);
+  --main-background: #1976d2;
+  --left-side: #fbfcfe;
+}
+
+body {
+  /* overflow: hidden; */
 }
