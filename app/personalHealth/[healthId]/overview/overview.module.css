@@ -7,11 +7,13 @@
 
 .overviewContainer {
   width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
   display: flex;
 }
 
 /* Styles for the basic information part */
-.basicInforPart {
+.basicInfoPart {
   margin-right: 10px;
   width: 50%;
   height: 1000px;
@@ -21,9 +23,11 @@
 .gridHealthInfo {
   width: 100%;
   display: flex;
+  margin-left: 30px;
 }
 
 /* Human body 3D image */
 .humanBody3DImage {
+  margin-right: 30px;
   width: 50%;
 }

@@ -4,7 +4,8 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import { TextField } from "@mui/material";
+
 // Define the props type
 interface BasicInfoCardProps {
   title: string;
@@ -19,6 +20,20 @@ const BasicInfoCard: React.FC<BasicInfoCardProps> = ({
   value,
   unit,
 }) => {
+  const [isEditing, setIsEditing] = React.useState(false);
+  const [editedValue, setEditedValue] = React.useState(value);
+
+  const handleDoubleClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleBlur = () => {
+    setIsEditing(false);
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEditedValue(event.target.value);
+  };
   return (
     <Card
       sx={{
@@ -27,7 +42,7 @@ const BasicInfoCard: React.FC<BasicInfoCardProps> = ({
         boxShadow: "4px 6px 10px rgba(0, 0, 0, 0.2)",
       }}
     >
-      <CardActionArea>
+       <div onDoubleClick={handleDoubleClick}>
         <CardMedia
           component="img"
           height="60"
@@ -35,20 +50,31 @@ const BasicInfoCard: React.FC<BasicInfoCardProps> = ({
           style={{
             width: "60px",
             height: "60px",
-            display: "block", // Ensure the image is treated as a block element
-            margin: "0 auto", // Center the image horizontally
+            display: "block",
+            margin: "0 auto",
           }}
         />
         <CardContent>
           <Typography gutterBottom variant="body2" component="div">
             {title}
           </Typography>
-          <Typography variant="body1" color="text.secondary">
-            {value}
-            {unit}
-          </Typography>
+          {isEditing ? (
+            <TextField
+              autoFocus
+              fullWidth
+              value={editedValue}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              variant="standard"
+            />
+          ) : (
+            <Typography variant="body1" color="text.secondary">
+              {value}
+              {unit}
+            </Typography>
+          )}
         </CardContent>
-      </CardActionArea>
+      </div>
     </Card>
   );
 };
