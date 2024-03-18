@@ -1,0 +1,33 @@
+.titleOfHealthInfo {
+  color: #333; /* or any preferred color */
+  font-size: 24px; /* Adjust based on your preference */
+  text-align: center; /* Aligns the text to the left */
+  margin-bottom: 0.5em; /* Adds a little space below the h1 */
+}
+
+.overviewContainer {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+}
+
+/* Styles for the basic information part */
+.basicInfoPart {
+  margin-right: 10px;
+  width: 50%;
+  height: 1000px;
+}
+
+/* Grid for health information */
+.gridHealthInfo {
+  width: 100%;
+  display: flex;
+  margin-left: 30px;
+}
+
+/* Human body 3D image */
+.humanBody3DImage {
+  margin-right: 30px;
+  width: 50%;
+}
