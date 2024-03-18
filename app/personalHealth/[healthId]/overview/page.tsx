@@ -71,7 +71,7 @@ const Overview = () => {
       <Navbar />
 
       <div className={overviewStyles.overviewContainer}>
-        <div className={overviewStyles.basicInforPart}>
+        <div className={overviewStyles.basicInfoPart}>
           <h2 className={overviewStyles.titleOfHealthInfo}>
             Your Health Information
           </h2>
