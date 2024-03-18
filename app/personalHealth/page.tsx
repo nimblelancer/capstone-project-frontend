@@ -14,16 +14,16 @@ const HealthRecordPage = () => {
   const [selectedRecord, setSelectedRecord] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [healthRecords, setHealthRecords] = useState([
-    { id: 1, name: 'John Doe', age: 30, gender: 'Male', relationshipType: 'Father' },
-    { id: 2, name: 'Jane Smith', age: 25, gender: 'Female', relationshipType: 'Mother' },
-    { id: 1, name: 'John Doe', age: 30, gender: 'Male', relationshipType: 'Father' },
-    { id: 2, name: 'Jane Smith', age: 25, gender: 'Female', relationshipType: 'Mother' },
-    { id: 1, name: 'John Doe', age: 30, gender: 'Male', relationshipType: 'Father' },
-    { id: 2, name: 'Jane Smith', age: 25, gender: 'Female', relationshipType: 'Mother' },
-    { id: 1, name: 'John Doe', age: 30, gender: 'Male', relationshipType: 'Father' },
-    { id: 2, name: 'Jane Smith', age: 25, gender: 'Female', relationshipType: 'Mother' },
-    { id: 1, name: 'John Doe', age: 30, gender: 'Male', relationshipType: 'Father' },
-    { id: 2, name: 'Jane Smith', age: 25, gender: 'Female', relationshipType: 'Mother' },
+    { id: 1, name: 'John Doe', age: 30, gender: 'Male', relationshipType: 'Father', bloodIndex: "140"},
+    { id: 2, name: 'Jane Smith', age: 25, gender: 'Female', relationshipType: 'Mother', bloodIndex: "140" },
+    { id: 1, name: 'John Doe', age: 30, gender: 'Male', relationshipType: 'Father',bloodIndex: "140"},
+    { id: 2, name: 'Jane Smith', age: 25, gender: 'Female', relationshipType: 'Mother', bloodIndex: "140" },
+    { id: 1, name: 'John Doe', age: 30, gender: 'Male', relationshipType: 'Father', bloodIndex: "140" },
+    { id: 2, name: 'Jane Smith', age: 25, gender: 'Female', relationshipType: 'Mother', bloodIndex: "140" },
+    { id: 1, name: 'John Doe', age: 30, gender: 'Male', relationshipType: 'Father', bloodIndex: "140" },
+    { id: 2, name: 'Jane Smith', age: 25, gender: 'Female', relationshipType: 'Mother', bloodIndex: "140" },
+    { id: 1, name: 'John Doe', age: 30, gender: 'Male', relationshipType: 'Father', bloodIndex: "140" },
+    { id: 2, name: 'Jane Smith', age: 25, gender: 'Female', relationshipType: 'Mother', bloodIndex: "140" },
   ]);
 
   const handleAddButtonClick = () => {
@@ -62,7 +62,7 @@ const HealthRecordPage = () => {
       <div className="flex">
         <div className="w-1/2 p-4 relative">
           <div className="absolute top-0 right-0 mt-8 mr-4">
-            <AddButton onClick={handleAddButtonClick} />
+            <AddButton onClick={handleAddButtonClick}/>
           </div>
           <div className="mt-20 grid grid-cols-2 gap-4 scrollable-container" style={{ maxHeight: 'calc(100vh - 200px)', overflow: 'auto', paddingRight: '20px' }}>
             {healthRecords.map((record) => (  
