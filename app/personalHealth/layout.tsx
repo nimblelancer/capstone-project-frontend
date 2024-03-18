@@ -1,4 +1,4 @@
-import Sidebar from "@/component/Sidebar/Sidebar";
+import Sidebar from "@/components/Sidebar/Sidebar";
 import { Grid } from "@mui/material";
 
 export default function PersonalHealthLayout({

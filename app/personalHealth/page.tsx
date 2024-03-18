@@ -8,7 +8,7 @@ import "../globals.css";
 import AddButton from "@/components/HealthRecord/addButton";
 import HealthRecordForm from "@/components/HealthRecord/healthRecordForm";
 import HealthRecordDetails from "@/components/HealthRecord/heathRecordDetail";
-import Footer from "@/components/Footer";
+import { link } from "fs";
 
 const HealthRecordPage = () => {
   const [selectedRecord, setSelectedRecord] = useState(null);
@@ -94,6 +94,7 @@ const HealthRecordPage = () => {
   const handleCardClick = (record) => {
     setSelectedRecord(record);
     setShowForm(false);
+    
   };
 
   const handleFormSubmit = (data) => {

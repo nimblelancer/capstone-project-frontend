@@ -2,8 +2,8 @@
 import HumanBodyImage from "@/components/Overview/HumanBodyImage/HumanBodyImage";
 import { useState } from "react";
 import BasicInfoCard from "@/components/Overview/basicInfoCard/basicInfoCard";
-import Navbar from "@/components/Overview/Navbar/Navbar";
 import overviewStyles from "./overview.module.css";
+import Breadcrum from "@/components/Breadcrum/Breadcrum";
 const healthData = [
   {
     title: "Blood Sugar",
@@ -67,11 +67,10 @@ const Overview = () => {
   };
 
   return (
-    <div>
-      <Navbar />
-
+    <>
       <div className={overviewStyles.overviewContainer}>
         <div className={overviewStyles.basicInfoPart}>
+          <Breadcrum />
           <h2 className={overviewStyles.titleOfHealthInfo}>
             Your Health Information
           </h2>
@@ -107,7 +106,7 @@ const Overview = () => {
           <HumanBodyImage />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
