@@ -69,3 +69,20 @@ pre {
 .active-tab {
   @apply bg-stroke text-black dark:bg-blackho dark:text-white;
 }
+/* CSS */
+.scrollable-container::-webkit-scrollbar {
+  width: 8px; /* Adjust the width as needed */
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background-color: rgb(37, 122, 197);
+  border-radius: 6px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
