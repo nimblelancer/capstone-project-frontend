@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'; // Import motion from framer-motion
 import MainLayout from "../personalHealth/layout";
 import Card from "@/components/HealthRecord/card";
@@ -8,7 +8,8 @@ import "../globals.css";
 import AddButton from "@/components/HealthRecord/addButton";
 import HealthRecordForm from "@/components/HealthRecord/healthRecordForm";
 import HealthRecordDetails from "@/components/HealthRecord/heathRecordDetail";
-import Footer from "@/components/Footer";
+import axios from 'axios';
+
 
 const HealthRecordPage = () => {
   const [selectedRecord, setSelectedRecord] = useState(null);
@@ -34,6 +35,14 @@ const HealthRecordPage = () => {
   const handleCardClick = (record) => {
     setSelectedRecord(record);
     setShowForm(false);
+  };
+
+
+  const handleDelete = (recordToDelete) => {
+    if (window.confirm("Are you sure you want to delete this record?")) {
+      const updatedRecords = healthRecords.filter(record => record.id !== recordToDelete.id);
+      setHealthRecords(updatedRecords);
+    }
   };
 
   const handleFormSubmit = (data) => {
@@ -66,7 +75,7 @@ const HealthRecordPage = () => {
           </div>
           <div className="mt-20 grid grid-cols-2 gap-4 scrollable-container" style={{ maxHeight: 'calc(100vh - 200px)', overflow: 'auto', paddingRight: '20px' }}>
             {healthRecords.map((record) => (  
-              <Card key={record.id} healthRecord={record} onClick={handleCardClick} />
+              <Card key={record.id} healthRecord={record} onClick={handleCardClick} onDelete={handleDelete} />
             ))}
           </div>
         </div>

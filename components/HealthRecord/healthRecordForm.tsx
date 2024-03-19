@@ -69,10 +69,11 @@ const HealthRecordForm = ({ onSubmit, onCancel, initialValues }) => {
       </div>
       <div className="mb-4">
         <label htmlFor="bloodIndex" className="block">Blood Index:</label>
-        <input type="text" id="relationshipType" name="relationshipType" value={formData.bloodIndex || ''} onChange={handleChange} className="border rounded px-2 py-1 w-full" />
+        <input type="text" id="bloodIndex" name="bloodIndex" value={formData.bloodIndex || ''} onChange={handleChange} className="border rounded px-2 py-1 w-full" />
         {errors.bloodIndex && <p className="text-red-500">{errors.bloodIndex}</p>}
       </div>
-      {/* Add more input fields and their corresponding error messages */}
+
+
       <div className="flex">
         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded mr-2">
           Save
