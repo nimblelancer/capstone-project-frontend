@@ -13,7 +13,7 @@ const Integration = () => {
             headerInfo={{
               title: `CONTACT US`,
               subtitle: `Please contact so we can support you better!`,
-              description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.`,
+              description: `If you have any question or need any services, please contact us so that we can guild you.`,
             }}
           />
 

@@ -14,6 +14,7 @@ const HealthRecordDetails = ({ healthRecord }) => {
       <p>Age: {healthRecord.age}</p>
       <p>Gender: {healthRecord.gender}</p>
       <p>Relationship Type: {healthRecord.relationshipType}</p>
+      <p>Blood Index: {healthRecord.bloodIndex}</p>
       {/* Display other details here */}
     </div>
   );
