@@ -11,6 +11,11 @@
   @apply w-5 rounded-full bg-primary;
 }
 
+:root {
+  --main-background: #1976d2;
+  --left-side: #fbfcfe;
+}
+
 .testimonial-01 .swiper-pagination {
   @apply relative pt-[50px];
 }
@@ -57,7 +62,6 @@
       brightness(100%) contrast(105%);
   }
 }
-
 
 pre {
   @apply relative mb-2 rounded-lg bg-strokedark px-4 py-2;
