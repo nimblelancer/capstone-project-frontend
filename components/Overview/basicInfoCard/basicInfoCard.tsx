@@ -12,6 +12,7 @@ interface BasicInfoCardProps {
   icon: string;
   value: string;
   unit: string;
+  onUpdateValue: (newValue: string) => void; // Add this prop
 }
 
 const BasicInfoCard: React.FC<BasicInfoCardProps> = ({
@@ -19,6 +20,7 @@ const BasicInfoCard: React.FC<BasicInfoCardProps> = ({
   icon,
   value,
   unit,
+  onUpdateValue,
 }) => {
   const [isEditing, setIsEditing] = React.useState(false);
   const [editedValue, setEditedValue] = React.useState(value);
@@ -29,6 +31,7 @@ const BasicInfoCard: React.FC<BasicInfoCardProps> = ({
 
   const handleBlur = () => {
     setIsEditing(false);
+    onUpdateValue(editedValue);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,6 +55,7 @@ const BasicInfoCard: React.FC<BasicInfoCardProps> = ({
             height: "60px",
             display: "block",
             margin: "0 auto",
+            marginTop:"5px"
           }}
         />
         <CardContent>
