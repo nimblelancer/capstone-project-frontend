@@ -40,15 +40,44 @@ const HealthRecordPage = () => {
   };
 
   const handleDelete = async (recordToDelete) => {
-    if (window.confirm("Are you sure you want to delete this record?")) {
+    const confirmModal = document.createElement('div');
+    confirmModal.classList.add('confirm-modal');
+    
+    const message = document.createElement('div');
+    message.textContent = "Are you sure you want to delete this record?";
+    message.classList.add('confirm-message');
+    confirmModal.appendChild(message);
+    
+    const buttonContainer = document.createElement('div');
+    buttonContainer.classList.add('button-container');
+    
+    const confirmButton = document.createElement('button');
+    confirmButton.textContent = "Yes";
+    confirmButton.classList.add('confirm-button');
+    confirmButton.onclick = async () => {
       try {
         await axios.delete(`http://localhost:5000/api/healthRecord/${recordToDelete._id}`);
         setHealthRecords(prevRecords => prevRecords.filter(record => record._id !== recordToDelete._id));
+        confirmModal.remove(); // Remove the modal after confirming
       } catch (error) {
         console.error('Error deleting health record:', error);
       }
-    }
+    };
+    buttonContainer.appendChild(confirmButton);
+    
+    const cancelButton = document.createElement('button');
+    cancelButton.textContent = "Cancel";
+    cancelButton.classList.add('cancel-button');
+    cancelButton.onclick = () => {
+      confirmModal.remove(); // Remove the modal if canceled
+    };
+    buttonContainer.appendChild(cancelButton);
+    
+    confirmModal.appendChild(buttonContainer);
+    
+    document.body.appendChild(confirmModal);
   };
+  
   
 
   const handleFormSubmit = async (data) => {
