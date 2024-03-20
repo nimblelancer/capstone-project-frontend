@@ -1,7 +1,7 @@
 import Sidebar from "@/components/Sidebar/Sidebar";
 import { Grid } from "@mui/material";
 
-export default function PersonalHealthLayout({
+export default function MainLayout({
   children, // will be a page or nested layout
 }: {
   children: React.ReactNode;
