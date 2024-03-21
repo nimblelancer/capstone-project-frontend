@@ -1,21 +1,15 @@
-import Sidebar from "@/components/Sidebar/Sidebar";
-import { Grid } from "@mui/material";
 
-export default function PersonalHealthLayout({
+import Navbar from "@/components/InsideNavbar/navbar";
+
+export default function MainLayout({
   children, // will be a page or nested layout
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <Grid container spacing={0}>
-        <Grid item xs={1.75}>
-          <Sidebar />
-        </Grid>
-        <Grid item xs={10.25}>
-          {children}
-        </Grid>
-      </Grid>
-    </>
+    <main>
+      <Navbar/>
+      {children}
+    </main>
   );
 }

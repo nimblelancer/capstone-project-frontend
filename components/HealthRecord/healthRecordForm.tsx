@@ -32,10 +32,6 @@ const HealthRecordForm = ({ onSubmit, onCancel, initialValues }) => {
     if (!formData.relationshipType) {
       validationErrors.relationshipType = 'Relationship is required';
     }
-    if (!formData.bloodIndex) {
-      validationErrors.bloodIndex = 'Blood Index is required';
-    }
-    
     // If there are validation errors, set them and prevent form submission
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -67,11 +63,6 @@ const HealthRecordForm = ({ onSubmit, onCancel, initialValues }) => {
         <input type="text" id="relationshipType" name="relationshipType" value={formData.relationshipType || ''} onChange={handleChange} className="border rounded px-2 py-1 w-full" />
         {errors.relationshipType && <p className="text-red-500">{errors.relationshipType}</p>}
       </div>
-      <div className="mb-4">
-        <label htmlFor="bloodIndex" className="block">Blood Index:</label>
-        <input type="text" id="bloodIndex" name="bloodIndex" value={formData.bloodIndex || ''} onChange={handleChange} className="border rounded px-2 py-1 w-full" />
-        {errors.bloodIndex && <p className="text-red-500">{errors.bloodIndex}</p>}
-      </div>
 
 
       <div className="flex">
@@ -87,3 +78,5 @@ const HealthRecordForm = ({ onSubmit, onCancel, initialValues }) => {
 };
 
 export default HealthRecordForm;
+
+
