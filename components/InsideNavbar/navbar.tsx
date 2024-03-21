@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-
 const Navbar = () => {
   const [navigationOpen, setNavigationOpen] = useState(false);
   const [dropdownToggler, setDropdownToggler] = useState(false);
@@ -27,12 +26,12 @@ const Navbar = () => {
 
   return (
     <header
-    className={`fixed left-0 top-0 z-99999 w-full py-7 ${
-      stickyMenu
-        ? "bg-white !py-4 shadow transition duration-100 dark:bg-black"
-        : "bg-blue-500" // Set the background color to blue (you can replace 'bg-blue-500' with your preferred shade)
-    }`}
-  >
+      className={`fixed left-0 top-0 z-99999 w-full py-7 ${
+        stickyMenu
+          ? "bg-white !py-4 shadow transition duration-100 dark:bg-black"
+          : "bg-blue-500" // Set the background color to blue (you can replace 'bg-blue-500' with your preferred shade)
+      }`}
+    >
       <div className="relative mx-auto max-w-c-1390 items-center justify-between px-4 md:px-8 xl:flex 2xl:px-0">
         <div className="flex w-full items-center justify-between xl:w-1/4">
           <a href="/">
@@ -99,6 +98,17 @@ const Navbar = () => {
           >
             Logout
           </Link>
+          {/* Avatar */}
+          <div className="ml-4">
+            <Image
+              src="/images/avatar.jpg" // Replace with the path to your avatar image
+              alt="Avatar"
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
+          </div>
+          {/* End Avatar */}
         </div>
       </div>
     </header>
