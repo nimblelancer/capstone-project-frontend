@@ -1,0 +1,33 @@
+.leftside {
+  background-color: var(--left-side);
+
+  padding: 1.5rem 3.5rem;
+  height: 100vh;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.leftside::-webkit-scrollbar {
+  width: 6px;
+}
+.leftside::-webkit-scrollbar-thumb {
+  background-color: var(--main-background);
+  border-radius: 4px;
+}
+.leftside::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: white;
+}
+
+.content {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+}
+
+.medicalHistoryCard {
+  padding-right: 15%;
+}
