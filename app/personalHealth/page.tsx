@@ -137,48 +137,46 @@ const HealthRecordPage = () => {
   };
 
   return (
-    <MainLayout>
-      <div className="flex">
-        <div className="relative w-1/2 p-4">
-          <div className="absolute right-0 top-0 mr-4 mt-8">
-            <AddButton onClick={handleAddButtonClick} />
-          </div>
-          <div
-            className="scrollable-container mt-20 grid grid-cols-2 gap-4"
-            style={{
-              maxHeight: "calc(100vh - 200px)",
-              overflow: "auto",
-              paddingRight: "20px",
-            }}
-          >
-            {healthRecords.map((record) => (
-              <Card
-                key={record.id}
-                healthRecord={record}
-                onClick={handleCardClick}
-                onDelete={handleDelete}
-              />
-            ))}
-          </div>
+    <div className="flex">
+      <div className="relative w-1/2 p-4">
+        <div className="absolute right-0 top-0 mr-4 mt-8">
+          <AddButton onClick={handleAddButtonClick} />
         </div>
-        <motion.div
-          className="mt-20 w-1/2 p-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+        <div
+          className="scrollable-container mt-20 grid grid-cols-2 gap-4"
+          style={{
+            maxHeight: "calc(100vh - 200px)",
+            overflow: "auto",
+            paddingRight: "20px",
+          }}
         >
-          {showForm ? (
-            <HealthRecordForm
-              onSubmit={handleFormSubmit}
-              onCancel={handleFormCancel}
-              initialValues={selectedRecord}
+          {healthRecords.map((record) => (
+            <Card
+              key={record.id}
+              healthRecord={record}
+              onClick={handleCardClick}
+              onDelete={handleDelete}
             />
-          ) : (
-            <HealthRecordDetails healthRecord={selectedRecord} />
-          )}
-        </motion.div>
+          ))}
+        </div>
       </div>
-    </MainLayout>
+      <motion.div
+        className="mt-20 w-1/2 p-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        {showForm ? (
+          <HealthRecordForm
+            onSubmit={handleFormSubmit}
+            onCancel={handleFormCancel}
+            initialValues={selectedRecord}
+          />
+        ) : (
+          <HealthRecordDetails healthRecord={selectedRecord} />
+        )}
+      </motion.div>
+    </div>
   );
 };
 

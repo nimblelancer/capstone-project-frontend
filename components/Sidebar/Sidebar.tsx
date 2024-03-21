@@ -6,10 +6,9 @@ import IconButton from "@mui/material/IconButton";
 
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { useState } from "react";
-import { mainListItems, secondaryListItems } from "./listItem";
-import styles from "./Sidebar.module.css";
+import { SecondaryListItems, mainListItems } from "./listItem";
 
-function Sidebar() {
+function Sidebar({ healthId }: { healthId: string }) {
   const [open, setOpen] = useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -22,18 +21,16 @@ function Sidebar() {
         sx={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "flex-end",
+          justifyContent: "center",
         }}
       >
-        <IconButton onClick={toggleDrawer}>
-          <ChevronLeftIcon />
-        </IconButton>
+        <img style={{ width: "100px" }} src="/images/logo/medic.png" alt="" />
       </Toolbar>
       <Divider />
       <List component="nav">
         {mainListItems}
         <Divider sx={{ my: 1 }} />
-        {secondaryListItems}
+        <SecondaryListItems healthId={healthId} />
       </List>
       {/* </Drawer> */}
     </div>

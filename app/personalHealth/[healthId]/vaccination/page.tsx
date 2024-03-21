@@ -1,7 +1,6 @@
 import Disease from "@/components/Disease/Disease";
 import Vaccine from "@/components/Vaccine/Vaccine";
 import { Grid } from "@mui/material";
-import React from "react";
 
 function page() {
   return (
