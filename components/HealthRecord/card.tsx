@@ -19,7 +19,7 @@
 import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardBody from '@mui/material/CardContent';
-import DeleteIcon from '@mui/icons-material/Delete';
+
 
 const CustomCard = ({ healthRecord, onClick, onDelete }) => {
   const [deleteTimeout, setDeleteTimeout] = useState(null);

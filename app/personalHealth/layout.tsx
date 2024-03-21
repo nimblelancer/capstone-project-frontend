@@ -1,5 +1,4 @@
 
-import Navbar from "@/components/InsideNavbar/navbar";
 
 export default function MainLayout({
   children, // will be a page or nested layout
@@ -8,7 +7,6 @@ export default function MainLayout({
 }) {
   return (
     <main>
-      <Navbar/>
       {children}
     </main>
   );

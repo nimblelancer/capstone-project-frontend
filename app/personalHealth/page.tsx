@@ -8,7 +8,7 @@ import AddButton from "@/components/HealthRecord/addButton";
 import HealthRecordForm from "@/components/HealthRecord/healthRecordForm";
 import HealthRecordDetails from "@/components/HealthRecord/heathRecordDetail";
 import axios from 'axios';
-
+import Navbar from '@/components/InsideNavbar/navbar';
 
 
 const HealthRecordPage = () => {
@@ -22,7 +22,7 @@ const HealthRecordPage = () => {
 
   const fetchHealthRecords = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/healthRecord');
+      const response = await axios.get('http://localhost:3055/api/healthRecord');
       setHealthRecords(response.data);
     } catch (error) {
       console.error('Error fetching health records:', error);
@@ -56,7 +56,7 @@ const HealthRecordPage = () => {
     confirmButton.classList.add('confirm-button');
     confirmButton.onclick = async () => {
       try {
-        await axios.delete(`http://localhost:5000/api/healthRecord/${recordToDelete._id}`);
+        await axios.delete(`http://localhost:3055/api/healthRecord/${recordToDelete._id}`);
         setHealthRecords(prevRecords => prevRecords.filter(record => record._id !== recordToDelete._id));
         confirmModal.remove(); // Remove the modal after confirming
       } catch (error) {
@@ -83,10 +83,10 @@ const HealthRecordPage = () => {
     try {
       if (selectedRecord) {
         // Update existing health record
-        await axios.put(`http://localhost:5000/api/healthRecord/${selectedRecord._id}`, data);
+        await axios.put(`http://localhost:3055/api/healthRecord/${selectedRecord._id}`, data);
       } else {
         // Add new health record
-        await axios.post(`http://localhost:5000/api/healthRecord`, data);
+        await axios.post(`http://localhost:3055/api/healthRecord`, data);
       }
       setShowForm(false);
       setSelectedRecord(null);
@@ -102,6 +102,8 @@ const HealthRecordPage = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="flex mb-10 mt-20 mr-2">
         <div className="w-1/2 p-4 relative">
             <motion.div className="mt-20 mb-10 grid grid-cols-2 gap-4 scrollable-container" style={{ maxHeight: 'calc(100vh - 200px)', overflow: 'auto', paddingRight: '20px', position: 'relative' }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
@@ -121,7 +123,7 @@ const HealthRecordPage = () => {
     )}
   </motion.div>
 </div>
-
+</>
   
   );
 };
