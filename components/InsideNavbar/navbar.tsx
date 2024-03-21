@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const Header = () => {
+const Navbar = () => {
   const [navigationOpen, setNavigationOpen] = useState(false);
   const [dropdownToggler, setDropdownToggler] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
@@ -26,7 +26,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed left-0 top-0 z-99999 w-full py-1 ${
+      className={`fixed left-0 top-0 z-99999 w-full py-7 ${
         stickyMenu
           ? "bg-white !py-4 shadow transition duration-100 dark:bg-black"
           : "bg-blue-500" // Set the background color to blue (you can replace 'bg-blue-500' with your preferred shade)
@@ -38,9 +38,9 @@ const Header = () => {
             <Image
               src="/images/logo/medic.png"
               alt="logo"
-              width={100}
-              height={70}
-              style={{ marginBottom: "1rem" }}
+              width={50}
+              height={30}
+              className="w-full dark:hidden"
             />
           </a>
 
@@ -89,21 +89,30 @@ const Header = () => {
         <div
           className={`invisible h-0 w-full items-center justify-end xl:visible xl:flex xl:h-auto xl:w-full ${
             navigationOpen &&
-            "navbar !visible mt-4 h-auto max-h-[400px] rounded-md bg-white p-7.5 shadow-solid-5 dark:bg-blacksection xl:h-auto xl:p-0 xl:shadow-none xl:dark:bg-transparent"
+            "navbar !visible mt-4 h-auto max-h-[400px] rounded-md bg-white p-7.5 shadow-solid-5 xl:h-auto xl:p-0 xl:shadow-none xl:dark:bg-transparent"
           }`}
         >
           <Link
-            href="/signin"
-            className="flex items-center justify-center rounded-full bg-white px-7.5 py-2.5 text-regular text-black duration-300 ease-in-out hover:bg-primaryho"
+            href="/Logout"
+            className="flex items-center justify-center rounded-full bg-white px-7.5 py-2.5 text-regular duration-300 ease-in-out hover:bg-primaryho"
           >
-            Sign In/Sign up
+            Logout
           </Link>
+          {/* Avatar */}
+          <div className="ml-4">
+            <Image
+              src="/images/avatar.jpg" // Replace with the path to your avatar image
+              alt="Avatar"
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
+          </div>
+          {/* End Avatar */}
         </div>
       </div>
     </header>
   );
 };
 
-// w-full delay-300
-
-export default Header;
+export default Navbar;
