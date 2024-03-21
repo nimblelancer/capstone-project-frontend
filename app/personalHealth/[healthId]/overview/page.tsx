@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import BasicInfoCard from "@/components/Overview/basicInfoCard/basicInfoCard";
 import overviewStyles from "./overview.module.css";
 import Breadcrum from "@/components/Breadcrum/Breadcrum";
+import Tdee from '../../../../components/Overview/TDEE/TDEE';
 interface HealthDataItem {
   title: string;
   icon: string;
@@ -128,19 +129,10 @@ const Overview: React.FC = () => {
               </div>
             ))}
           </div>
-          {bmi !== null && (
-          <div className={overviewStyles.bmiCardCenter}>
-           <div className={overviewStyles.bmiCard}>
-            <BasicInfoCard
-              title="BMI"
-              icon="/icons/bmi.png" // You can add a BMI icon here
-              value={bmi.toFixed(2)} // Limit to two decimal places
-              unit="kg/m²"
-              onUpdateValue={(newValue) => handleUpdateHealthData(-1, newValue)} // Use -1 as a dummy index for BMI card
-            />
+          <div>
+            <Tdee/>
           </div>
-        </div>
-        )}
+         
         </div>
         <div className={overviewStyles.humanBody3DImage}>
           <HumanBodyImage />
