@@ -1,6 +1,5 @@
-import Sidebar from "@/components/Sidebar/Sidebar";
-import { Grid } from "@mui/material";
-import Footer from "@/components/Footer";
+
+import Navbar from "@/components/InsideNavbar/navbar";
 
 export default function MainLayout({
   children, // will be a page or nested layout
@@ -8,16 +7,9 @@ export default function MainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <Grid container spacing={0}>
-        <Grid item xs={1.75}>
-          <Sidebar />
-        </Grid>
-        <Grid item xs={10.25}>
-          {children}
-        </Grid>
-      </Grid>
-      <Footer/>
-    </>
+    <main>
+      <Navbar/>
+      {children}
+    </main>
   );
 }
