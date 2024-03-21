@@ -78,7 +78,6 @@ const HealthRecordPage = () => {
     document.body.appendChild(confirmModal);
   };
   
-  
 
   const handleFormSubmit = async (data) => {
     try {
@@ -104,13 +103,13 @@ const HealthRecordPage = () => {
 
   return (
     <div className="flex">
-  <div className="w-1/2 p-4 relative">
-    <div className="mt-20 mb-10 grid grid-cols-2 gap-4 scrollable-container" style={{ maxHeight: 'calc(100vh - 200px)', overflow: 'auto', paddingRight: '20px', position: 'relative' }}>
-      {healthRecords.map((record) => (  
-        <Card key={record._id} healthRecord={record} onClick={handleCardClick} onDelete={handleDelete} />
-      ))}
-    </div>
-    <div className="absolute bottom-0 right-0 mt-6 mr-4 z-10">
+        <div className="w-1/2 p-4 relative">
+            <motion.div className="mt-20 mb-10 grid grid-cols-2 gap-4 scrollable-container" style={{ maxHeight: 'calc(100vh - 200px)', overflow: 'auto', paddingRight: '20px', position: 'relative' }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+                {healthRecords.map((record) => (  
+            <Card key={record._id} healthRecord={record} onClick={handleCardClick} onDelete={handleDelete} />
+            ))}
+        </motion.div>
+    <div className="absolute bottom-0 right-0 mt-6 mr-4">
       <AddButton onClick={handleAddButtonClick}/>
     </div>
   </div>
