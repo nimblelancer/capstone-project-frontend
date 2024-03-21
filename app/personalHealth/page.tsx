@@ -7,6 +7,7 @@ import AddButton from "@/components/HealthRecord/addButton";
 import HealthRecordForm from "@/components/HealthRecord/healthRecordForm";
 import HealthRecordDetails from "@/components/HealthRecord/heathRecordDetail";
 import axios from "axios";
+import Navbar from "@/components/InsideNavbar/navbar";
 
 const HealthRecordPage = () => {
   const [selectedRecord, setSelectedRecord] = useState(null);
@@ -20,7 +21,7 @@ const HealthRecordPage = () => {
   const fetchHealthRecords = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/healthRecord",
+        "http://localhost:3055/api/healthRecord",
       );
       setHealthRecords(response.data);
     } catch (error) {
@@ -56,7 +57,7 @@ const HealthRecordPage = () => {
     confirmButton.onclick = async () => {
       try {
         await axios.delete(
-          `http://localhost:5000/api/healthRecord/${recordToDelete._id}`,
+          `http://localhost:3055/api/healthRecord/${recordToDelete._id}`,
         );
         setHealthRecords((prevRecords) =>
           prevRecords.filter((record) => record._id !== recordToDelete._id),
@@ -86,12 +87,12 @@ const HealthRecordPage = () => {
       if (selectedRecord) {
         // Update existing health record
         await axios.put(
-          `http://localhost:5000/api/healthRecord/${selectedRecord._id}`,
+          `http://localhost:3055/api/healthRecord/${selectedRecord._id}`,
           data,
         );
       } else {
         // Add new health record
-        await axios.post(`http://localhost:5000/api/healthRecord`, data);
+        await axios.post(`http://localhost:3055/api/healthRecord`, data);
       }
       setShowForm(false);
       setSelectedRecord(null);
@@ -107,50 +108,71 @@ const HealthRecordPage = () => {
   };
 
   return (
-    <div className="mb-10 mr-2 mt-20 flex">
-      <div className="relative w-1/2 p-4">
+    <>
+      <Navbar />
+      <div className="mb-10 mr-2 mt-20 flex">
+        <div className="relative w-1/2 p-4">
+          <motion.div
+            className="scrollable-container mb-10 mt-20 grid grid-cols-2 gap-4"
+            style={{
+              maxHeight: "calc(100vh - 200px)",
+              overflow: "auto",
+              paddingRight: "20px",
+              position: "relative",
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            {healthRecords.map((record) => (
+              <Card
+                key={record._id}
+                healthRecord={record}
+                onClick={handleCardClick}
+                onDelete={handleDelete}
+              />
+            ))}
+          </motion.div>
+          <div className="absolute bottom-0 right-0 mr-4 mt-6">
+            <AddButton onClick={handleAddButtonClick} />
+          </div>
+        </div>
         <motion.div
-          className="scrollable-container mb-10 mt-20 grid grid-cols-2 gap-4"
-          style={{
-            maxHeight: "calc(100vh - 200px)",
-            overflow: "auto",
-            paddingRight: "20px",
-            position: "relative",
-          }}
+          className="mt-20 w-1/2 p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.5 }}
         >
-          {healthRecords.map((record) => (
-            <Card
-              key={record._id}
-              healthRecord={record}
-              onClick={handleCardClick}
-              onDelete={handleDelete}
+          {showForm ? (
+            <HealthRecordForm
+              onSubmit={handleFormSubmit}
+              onCancel={handleFormCancel}
+              initialValues={selectedRecord}
             />
-          ))}
+          ) : (
+            <HealthRecordDetails healthRecord={selectedRecord} />
+          )}
         </motion.div>
-        <div className="absolute bottom-0 right-0 mr-4 mt-6">
-          <AddButton onClick={handleAddButtonClick} />
-        </div>
       </div>
-      <motion.div
-        className="mt-20 w-1/2 p-4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        {showForm ? (
-          <HealthRecordForm
-            onSubmit={handleFormSubmit}
-            onCancel={handleFormCancel}
-            initialValues={selectedRecord}
-          />
-        ) : (
-          <HealthRecordDetails healthRecord={selectedRecord} />
-        )}
-      </motion.div>
-    </div>
+      <div>
+        <motion.div
+          className="mt-20 w-1/2 p-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          {showForm ? (
+            <HealthRecordForm
+              onSubmit={handleFormSubmit}
+              onCancel={handleFormCancel}
+              initialValues={selectedRecord}
+            />
+          ) : (
+            <HealthRecordDetails healthRecord={selectedRecord} />
+          )}
+        </motion.div>
+      </div>
+    </>
   );
 };
 
