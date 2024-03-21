@@ -6,8 +6,11 @@ import ListSubheader from "@mui/material/ListSubheader";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PeopleIcon from "@mui/icons-material/People";
-
-import AssignmentIcon from "@mui/icons-material/Assignment";
+import HomeIcon from "@mui/icons-material/Home";
+import DvrIcon from "@mui/icons-material/Dvr";
+import VaccinesIcon from "@mui/icons-material/Vaccines";
+import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
+import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
 import Link from "next/link";
 
 export const mainListItems = (
@@ -18,12 +21,14 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Your Profile" />
     </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <ShoppingCartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Personal Health" />
-    </ListItemButton>
+    <Link href={"/personalHealth"}>
+      <ListItemButton>
+        <ListItemIcon>
+          <PermContactCalendarIcon />
+        </ListItemIcon>
+        <ListItemText primary="Personal Health" />
+      </ListItemButton>
+    </Link>
     <ListItemButton>
       <ListItemIcon>
         <PeopleIcon />
@@ -33,34 +38,62 @@ export const mainListItems = (
   </React.Fragment>
 );
 
-export const secondaryListItems = (
+export const SecondaryListItems = ({ healthId }: { healthId: string }) => (
   <React.Fragment>
     <ListSubheader component="div" inset>
       Your Personal Health
     </ListSubheader>
-    <ListItemButton>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Overview" />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Medical History" />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Vaccination" />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Doctor" />
-    </ListItemButton>
+    <Link
+      href={{
+        pathname: `/personalHealth/${healthId}/overview`,
+        // query: { healthId: healthId },
+      }}
+    >
+      <ListItemButton>
+        <ListItemIcon>
+          <HomeIcon />
+        </ListItemIcon>
+        <ListItemText primary="Overview" />
+      </ListItemButton>
+    </Link>
+    <Link
+      href={{
+        pathname: `/personalHealth/${healthId}/medicalHistory`,
+        // query: { healthId: healthId },
+      }}
+    >
+      <ListItemButton>
+        <ListItemIcon>
+          <DvrIcon />
+        </ListItemIcon>
+        <ListItemText primary="Medical History" />
+      </ListItemButton>
+    </Link>
+    <Link
+      href={{
+        pathname: `/personalHealth/${healthId}/vaccination`,
+        // query: { healthId: healthId },
+      }}
+    >
+      <ListItemButton>
+        <ListItemIcon>
+          <VaccinesIcon />
+        </ListItemIcon>
+        <ListItemText primary="Vaccination" />
+      </ListItemButton>
+    </Link>
+    <Link
+      href={{
+        pathname: `/personalHealth/${healthId}/doctor`,
+        // query: { healthId: healthId },
+      }}
+    >
+      <ListItemButton>
+        <ListItemIcon>
+          <SelfImprovementIcon />
+        </ListItemIcon>
+        <ListItemText primary="Doctor" />
+      </ListItemButton>
+    </Link>
   </React.Fragment>
 );

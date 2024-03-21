@@ -1,5 +1,4 @@
-// Or wherever your component is located
-'use client';
+"use client";
 import SignIn from "@/components/SigninForm/signin";
 
 export default function SignInPage() {

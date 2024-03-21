@@ -32,22 +32,18 @@ const Footer = () => {
                   <Image
                     width={110}
                     height={80}
-                    src="/images/logo/medic.png"
+                    src="/images/logo/byt.png"
                     alt="Logo"
                     className="dark:hidden"
                   />
                 </a>
 
-                <p className="mb-10 mt-5  text-white">
-                  Health Record System.
-                </p>
+                <p className="mb-10 mt-5  text-white">Health Record System.</p>
 
                 <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]  text-white">
                   contact
                 </p>
-                <a
-                  className="text-itemtitle font-medium text-white"
-                >
+                <a className="text-itemtitle font-medium text-white">
                   hello@gmail.com
                 </a>
               </motion.div>
@@ -77,30 +73,22 @@ const Footer = () => {
 
                   <ul>
                     <li>
-                      <a
-                        className="mb-3 inline-block hover:text-primary text-white"
-                      >
+                      <a className="mb-3 inline-block text-white hover:text-primary">
                         Home
                       </a>
                     </li>
                     <li>
-                      <a
-                        className="mb-3 inline-block hover:text-primary text-white"
-                      >
+                      <a className="mb-3 inline-block text-white hover:text-primary">
                         Product
                       </a>
                     </li>
                     <li>
-                      <a
-                        className="mb-3 inline-block hover:text-primary text-white"
-                      >
+                      <a className="mb-3 inline-block text-white hover:text-primary">
                         Careers
                       </a>
                     </li>
                     <li>
-                      <a
-                        className="mb-3 inline-block hover:text-primary text-white"
-                      >
+                      <a className="mb-3 inline-block text-white hover:text-primary">
                         Pricing
                       </a>
                     </li>
@@ -131,30 +119,22 @@ const Footer = () => {
 
                   <ul>
                     <li>
-                      <a
-                        className="mb-3 inline-block hover:text-primary text-white"
-                      >
+                      <a className="mb-3 inline-block text-white hover:text-primary">
                         Company
                       </a>
                     </li>
                     <li>
-                      <a
-                        className="mb-3 inline-block hover:text-primary text-white"
-                      >
+                      <a className="mb-3 inline-block text-white hover:text-primary">
                         Press media
                       </a>
                     </li>
                     <li>
-                      <a
-                        className="mb-3 inline-block hover:text-primary text-white"
-                      >
+                      <a className="mb-3 inline-block text-white hover:text-primary">
                         Our Blog
                       </a>
                     </li>
                     <li>
-                      <a
-                        className="mb-3 inline-block hover:text-primary text-white"
-                      >
+                      <a className="mb-3 inline-block text-white hover:text-primary">
                         Contact Us
                       </a>
                     </li>
@@ -249,24 +229,24 @@ const Footer = () => {
             >
               <ul className="flex items-center gap-8">
                 <li>
-                  <a href="#" className="hover:text-primary text-white">
+                  <a href="#" className="text-white hover:text-primary">
                     English
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-primary text-white">
+                  <a href="#" className="text-white hover:text-primary">
                     Privacy Policy
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-primary text-white">
+                  <a href="#" className="text-white hover:text-primary">
                     Support
                   </a>
                 </li>
               </ul>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               variants={{
                 hidden: {
                   opacity: 0,
@@ -284,7 +264,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="animate_top"
             >
-              <p className = "text-white">
+              <p className="text-white">
                 &copy; {new Date().getFullYear()}. All rights reserved
               </p>
             </motion.div>
