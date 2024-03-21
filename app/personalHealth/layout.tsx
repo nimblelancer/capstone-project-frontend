@@ -1,5 +1,6 @@
 import Sidebar from "@/components/Sidebar/Sidebar";
 import { Grid } from "@mui/material";
+import Footer from "@/components/Footer";
 
 export default function MainLayout({
   children, // will be a page or nested layout
@@ -16,6 +17,7 @@ export default function MainLayout({
           {children}
         </Grid>
       </Grid>
+      <Footer/>
     </>
   );
 }

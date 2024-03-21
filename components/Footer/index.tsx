@@ -5,10 +5,10 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <>
-      <footer className="border-t border-stroke bg-white dark:border-strokedark dark:bg-blacksection">
+      <footer className="border-t border-stroke bg-primary">
         <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
           {/* <!-- Footer Top --> */}
-          <div className="py-20 lg:py-25">
+          <div className="py-10 lg:py-15">
             <div className="flex flex-wrap gap-8 lg:justify-between lg:gap-0">
               <motion.div
                 variants={{
@@ -38,15 +38,15 @@ const Footer = () => {
                   />
                 </a>
 
-                <p className="mb-10 mt-5">
+                <p className="mb-10 mt-5  text-white">
                   Health Record System.
                 </p>
 
-                <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]">
+                <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]  text-white">
                   contact
                 </p>
                 <a
-                  className="text-itemtitle font-medium text-black dark:text-white"
+                  className="text-itemtitle font-medium text-white"
                 >
                   hello@gmail.com
                 </a>
@@ -71,35 +71,35 @@ const Footer = () => {
                   viewport={{ once: true }}
                   className="animate_top"
                 >
-                  <h4 className="mb-9 text-itemtitle2 font-medium text-black dark:text-white">
+                  <h4 className="mb-9 text-itemtitle2 font-medium text-white">
                     Quick Links
                   </h4>
 
                   <ul>
                     <li>
                       <a
-                        className="mb-3 inline-block hover:text-primary"
+                        className="mb-3 inline-block hover:text-primary text-white"
                       >
                         Home
                       </a>
                     </li>
                     <li>
                       <a
-                        className="mb-3 inline-block hover:text-primary"
+                        className="mb-3 inline-block hover:text-primary text-white"
                       >
                         Product
                       </a>
                     </li>
                     <li>
                       <a
-                        className="mb-3 inline-block hover:text-primary"
+                        className="mb-3 inline-block hover:text-primary text-white"
                       >
                         Careers
                       </a>
                     </li>
                     <li>
                       <a
-                        className="mb-3 inline-block hover:text-primary"
+                        className="mb-3 inline-block hover:text-primary text-white"
                       >
                         Pricing
                       </a>
@@ -125,35 +125,35 @@ const Footer = () => {
                   viewport={{ once: true }}
                   className="animate_top"
                 >
-                  <h4 className="mb-9 text-itemtitle2 font-medium text-black dark:text-white">
+                  <h4 className="mb-9 text-itemtitle2 font-medium text-white">
                     Support
                   </h4>
 
                   <ul>
                     <li>
                       <a
-                        className="mb-3 inline-block hover:text-primary"
+                        className="mb-3 inline-block hover:text-primary text-white"
                       >
                         Company
                       </a>
                     </li>
                     <li>
                       <a
-                        className="mb-3 inline-block hover:text-primary"
+                        className="mb-3 inline-block hover:text-primary text-white"
                       >
                         Press media
                       </a>
                     </li>
                     <li>
                       <a
-                        className="mb-3 inline-block hover:text-primary"
+                        className="mb-3 inline-block hover:text-primary text-white"
                       >
                         Our Blog
                       </a>
                     </li>
                     <li>
                       <a
-                        className="mb-3 inline-block hover:text-primary"
+                        className="mb-3 inline-block hover:text-primary text-white"
                       >
                         Contact Us
                       </a>
@@ -179,10 +179,10 @@ const Footer = () => {
                   viewport={{ once: true }}
                   className="animate_top"
                 >
-                  <h4 className="mb-9 text-itemtitle2 font-medium text-black dark:text-white">
+                  <h4 className="mb-9 text-itemtitle2 font-medium text-white">
                     Newsletter
                   </h4>
-                  <p className="mb-4 w-[90%]">
+                  <p className="mb-4 w-[90%] text-white">
                     Subscribe to receive future updates
                   </p>
 
@@ -191,7 +191,7 @@ const Footer = () => {
                       <input
                         type="text"
                         placeholder="Email address"
-                        className="w-full rounded-full border border-stroke px-6 py-3 shadow-solid-11 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
+                        className="w-full rounded-full border border-stroke px-6 py-3 shadow-solid-11 focus:border-primary focus:outline-none"
                       />
 
                       <button
@@ -249,24 +249,24 @@ const Footer = () => {
             >
               <ul className="flex items-center gap-8">
                 <li>
-                  <a href="#" className="hover:text-primary">
+                  <a href="#" className="hover:text-primary text-white">
                     English
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-primary">
+                  <a href="#" className="hover:text-primary text-white">
                     Privacy Policy
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-primary">
+                  <a href="#" className="hover:text-primary text-white">
                     Support
                   </a>
                 </li>
               </ul>
             </motion.div>
 
-            <motion.div
+            <motion.div 
               variants={{
                 hidden: {
                   opacity: 0,
@@ -284,7 +284,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="animate_top"
             >
-              <p>
+              <p className = "text-white">
                 &copy; {new Date().getFullYear()}. All rights reserved
               </p>
             </motion.div>
