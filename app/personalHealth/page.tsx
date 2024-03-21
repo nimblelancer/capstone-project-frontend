@@ -13,15 +13,26 @@ const HealthRecordPage = () => {
   const [selectedRecord, setSelectedRecord] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [healthRecords, setHealthRecords] = useState([]);
+  const [userId, setUserId] = useState("");
 
   useEffect(() => {
-    fetchHealthRecords();
-  }, []); // Empty dependency array to run this effect only once on mount
+    const storedUserData = localStorage.getItem("user");
+    if (storedUserData) {
+      const userData = JSON.parse(storedUserData);
+      setUserId(userData._id);
+    } else {
+      console.log("User data not found in local storage");
+    }
 
-  const fetchHealthRecords = async () => {
+    fetchHealthRecords(userId);
+  }, [userId]); // Empty dependency array to run this effect only once on mount
+
+  const fetchHealthRecords = async (userId: string) => {
+    console.log(userId);
+
     try {
       const response = await axios.get(
-        "http://localhost:3055/api/healthRecord",
+        `http://localhost:3055/api/user/personalHealth/${userId}`,
       );
       setHealthRecords(response.data);
     } catch (error) {
@@ -83,20 +94,23 @@ const HealthRecordPage = () => {
   };
 
   const handleFormSubmit = async (data) => {
+    data = { ...data, userId };
+    console.log(data);
+
     try {
       if (selectedRecord) {
         // Update existing health record
         await axios.put(
-          `http://localhost:3055/api/healthRecord/${selectedRecord._id}`,
+          `http://localhost:3055/api/heathRecord/${selectedRecord._id}`,
           data,
         );
       } else {
         // Add new health record
-        await axios.post(`http://localhost:3055/api/healthRecord`, data);
+        await axios.post(`http://localhost:3055/api/heathRecord`, data);
       }
       setShowForm(false);
       setSelectedRecord(null);
-      fetchHealthRecords(); // Refresh health records after submission
+      // fetchHealthRecords(); // Refresh health records after submission
     } catch (error) {
       console.error("Error submitting health record:", error);
     }
@@ -154,7 +168,7 @@ const HealthRecordPage = () => {
           )}
         </motion.div>
       </div>
-      <div>
+      {/* <div>
         <motion.div
           className="mt-20 w-1/2 p-4"
           initial={{ opacity: 0 }}
@@ -171,7 +185,7 @@ const HealthRecordPage = () => {
             <HealthRecordDetails healthRecord={selectedRecord} />
           )}
         </motion.div>
-      </div>
+      </div> */}
     </>
   );
 };
