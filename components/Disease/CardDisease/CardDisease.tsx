@@ -11,10 +11,20 @@ import styles from "./CardDisease.module.css";
 import { useState } from "react";
 import Alert from "@/components/Alert/Alert";
 import { listDisease } from "../../../lib/data";
+import axios from "axios";
 
 function CardDisease({ disease }) {
   const [isEdit, setIsEdit] = useState(true);
   const [open, setOpen] = useState(false);
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3055/api/vaccination/${id}`);
+      handleClickOpen();
+    } catch (error) {
+      console.error("Error deleting health record:", error);
+    }
+  };
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -63,7 +73,11 @@ function CardDisease({ disease }) {
           >
             {isEdit ? "Edit" : "Save"}
           </Button>
-          <Button variant="outlined" size="small" onClick={handleClickOpen}>
+          <Button
+            variant="outlined"
+            size="small"
+            onClick={() => handleDelete(disease._id)}
+          >
             Delete
           </Button>
         </div>

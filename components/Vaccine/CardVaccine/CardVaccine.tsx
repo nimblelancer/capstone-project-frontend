@@ -33,8 +33,8 @@ function CardVaccine({ vaccine }) {
           </Grid>
           <Grid item xs={8}>
             <OutlinedInput
-              id="first-name"
-              name="first-name"
+              id="name"
+              name="name"
               type="name"
               placeholder="John"
               autoComplete="first name"
@@ -51,8 +51,8 @@ function CardVaccine({ vaccine }) {
           </Grid>
           <Grid item xs={8}>
             <OutlinedInput
-              id="first-name"
-              name="first-name"
+              id="origin"
+              name="origin"
               type="name"
               placeholder="John"
               autoComplete="first name"
@@ -83,8 +83,8 @@ function CardVaccine({ vaccine }) {
           </Grid>
           <Grid item xs={8}>
             <OutlinedInput
-              id="first-name"
-              name="first-name"
+              id="address"
+              name="address"
               type="name"
               placeholder="John"
               autoComplete="first name"

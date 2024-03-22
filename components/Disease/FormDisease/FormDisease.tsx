@@ -2,7 +2,7 @@
 import { Autocomplete, Box, Button, Modal, TextField } from "@mui/material";
 import { listDisease } from "../../../lib/data";
 import { useState } from "react";
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidateTag } from "next/cache";
 
 interface formDiseaseInterface {
   open: boolean;
