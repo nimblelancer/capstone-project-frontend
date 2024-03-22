@@ -8,7 +8,7 @@ import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import { useState } from "react";
 import FormDisease from "./FormDisease/FormDisease";
 
-function Disease() {
+function Disease({ diseases }) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -23,11 +23,10 @@ function Disease() {
     <div className={styles.leftside}>
       <Breadcrum />
       <div className={styles.content}>
-        <CardDisease />
-        <CardDisease />
-        <CardDisease />
-        <CardDisease />
-        <CardDisease />
+        {diseases.map((disease) => (
+          <CardDisease key={disease.id} disease={disease} />
+        ))}
+
         <Button
           variant="outlined"
           style={{ alignSelf: "flex-end" }}

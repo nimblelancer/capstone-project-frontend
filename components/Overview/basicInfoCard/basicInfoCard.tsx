@@ -40,12 +40,12 @@ const BasicInfoCard: React.FC<BasicInfoCardProps> = ({
   return (
     <Card
       sx={{
-        maxWidth: 200,
+        width: 200,
         textAlign: "center",
         boxShadow: "4px 6px 10px rgba(0, 0, 0, 0.2)",
       }}
     >
-       <div onDoubleClick={handleDoubleClick}>
+      <div onDoubleClick={handleDoubleClick}>
         <CardMedia
           component="img"
           height="60"
@@ -55,7 +55,7 @@ const BasicInfoCard: React.FC<BasicInfoCardProps> = ({
             height: "60px",
             display: "block",
             margin: "0 auto",
-            marginTop:"5px"
+            marginTop: "5px",
           }}
         />
         <CardContent>

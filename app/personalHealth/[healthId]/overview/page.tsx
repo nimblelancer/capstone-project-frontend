@@ -64,11 +64,13 @@ const Overview: React.FC = () => {
   ];
   const [healthData, setHealthData] = useState<HealthDataItem[]>(() => {
     // Check if window is defined (ensures we are in the browser environment)
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       // Access localStorage if available
       const storedHealthData = localStorage.getItem("healthData");
       /// Parse stored data or use initial data if no stored data found
-      return storedHealthData ? JSON.parse(storedHealthData) : initialHealthData;
+      return storedHealthData
+        ? JSON.parse(storedHealthData)
+        : initialHealthData;
     }
     // If not in browser environment, return initial data
     return initialHealthData;
@@ -81,8 +83,13 @@ const Overview: React.FC = () => {
   };
   useEffect(() => {
     // Calculate BMI when height and weight are available
-    const weight = parseFloat(healthData.find(item => item.title === 'Weight')?.value || '0');
-    const height = parseFloat(healthData.find(item => item.title === 'Height')?.value || '0') / 100; // Convert cm to m
+    const weight = parseFloat(
+      healthData.find((item) => item.title === "Weight")?.value || "0",
+    );
+    const height =
+      parseFloat(
+        healthData.find((item) => item.title === "Height")?.value || "0",
+      ) / 100; // Convert cm to m
     if (weight > 0 && height > 0) {
       const bmiValue = weight / (height * height);
       setBMI(bmiValue);
@@ -95,57 +102,60 @@ const Overview: React.FC = () => {
 
   return (
     <div className={overviewStyles.overviewContainer}>
-        <div className={overviewStyles.basicInfoPart}>
-          <Breadcrum />
-          <h2 className={overviewStyles.titleOfHealthInfo}>
-            Your Health Information
-          </h2>
-          <div className={overviewStyles.gridHealthInfo}>
-            {[0, 1].map((evenOdd) => (
-              <div style={{ width: "50%" }} key={evenOdd}>
-                {healthData.map((data, index) => {
-                  if (index % 2 === evenOdd) {
-                    return (
-                      <div
-                        key={index}
-                        style={{
-                          marginBottom: "20px",
-                        }}
-                      >
-                        <BasicInfoCard
-                          title={data.title}
-                          icon={data.icon}
-                          value={data.value}
-                          unit={data.unit}
-                          onUpdateValue={(newValue) => handleUpdateHealthData(index, newValue)}
-                        />
-                      </div>
-                    );
-                  } else {
-                    return null;
-                  }
-                })}
-              </div>
-            ))}
-          </div>
-          {bmi !== null && (
+      <div className={overviewStyles.basicInfoPart}>
+        <h2 className={overviewStyles.titleOfHealthInfo}>
+          Your Health Information
+        </h2>
+        <div className={overviewStyles.gridHealthInfo}>
+          {[0, 1].map((evenOdd) => (
+            <div style={{ width: "50%" }} key={evenOdd}>
+              {healthData.map((data, index) => {
+                if (index % 2 === evenOdd) {
+                  return (
+                    <div
+                      key={index}
+                      style={{
+                        marginBottom: "20px",
+                      }}
+                    >
+                      <BasicInfoCard
+                        title={data.title}
+                        icon={data.icon}
+                        value={data.value}
+                        unit={data.unit}
+                        onUpdateValue={(newValue) =>
+                          handleUpdateHealthData(index, newValue)
+                        }
+                      />
+                    </div>
+                  );
+                } else {
+                  return null;
+                }
+              })}
+            </div>
+          ))}
+        </div>
+        {bmi !== null && (
           <div className={overviewStyles.bmiCardCenter}>
-           <div className={overviewStyles.bmiCard}>
-            <BasicInfoCard
-              title="BMI"
-              icon="/icons/bmi.png" // You can add a BMI icon here
-              value={bmi.toFixed(2)} // Limit to two decimal places
-              unit="kg/m²"
-              onUpdateValue={(newValue) => handleUpdateHealthData(-1, newValue)} // Use -1 as a dummy index for BMI card
-            />
+            <div className={overviewStyles.bmiCard}>
+              <BasicInfoCard
+                title="BMI"
+                icon="/icons/bmi.png" // You can add a BMI icon here
+                value={bmi.toFixed(2)} // Limit to two decimal places
+                unit="kg/m²"
+                onUpdateValue={(newValue) =>
+                  handleUpdateHealthData(-1, newValue)
+                } // Use -1 as a dummy index for BMI card
+              />
+            </div>
           </div>
-        </div>
         )}
-        </div>
-        <div className={overviewStyles.humanBody3DImage}>
-          <HumanBodyImage />
-        </div>
       </div>
+      <div className={overviewStyles.humanBody3DImage}>
+        <HumanBodyImage />
+      </div>
+    </div>
   );
 };
 

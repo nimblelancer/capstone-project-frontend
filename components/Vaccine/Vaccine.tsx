@@ -6,7 +6,7 @@ import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import FormVaccine from "./FormVaccine/FormVaccine";
 import { useState } from "react";
 
-function Vaccine() {
+function Vaccine({ vaccines }) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -19,10 +19,13 @@ function Vaccine() {
 
   return (
     <div className={styles.rightside}>
+      {vaccines.map((vacc) => (
+        <CardVaccine key={vacc.id} vaccine={vacc} />
+      ))}
+      {/* <CardVaccine />
       <CardVaccine />
       <CardVaccine />
-      <CardVaccine />
-      <CardVaccine />
+      <CardVaccine /> */}
       <Button
         onClick={handleClickOpen}
         variant="outlined"

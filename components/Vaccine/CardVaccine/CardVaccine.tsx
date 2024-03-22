@@ -11,7 +11,7 @@ const FormGrid = styled(Grid)(() => ({
   gap: "1rem",
 }));
 
-function CardVaccine() {
+function CardVaccine({ vaccine }) {
   const [isEdit, setIsEdit] = useState(true);
   const [open, setOpen] = useState(false);
 
@@ -39,6 +39,7 @@ function CardVaccine() {
               placeholder="John"
               autoComplete="first name"
               required
+              value={vaccine.nameOfVaccine}
               size="small"
               readOnly={isEdit}
             />
@@ -56,6 +57,7 @@ function CardVaccine() {
               placeholder="John"
               autoComplete="first name"
               required
+              value={vaccine.origin}
               size="small"
               readOnly={isEdit}
             />
@@ -68,8 +70,8 @@ function CardVaccine() {
           <Grid item xs={8}>
             <input
               className={styles.date}
-              type="datetime-local"
               name=""
+              value={vaccine.dateTime}
               id=""
               readOnly={isEdit}
             />
@@ -87,6 +89,7 @@ function CardVaccine() {
               placeholder="John"
               autoComplete="first name"
               required
+              value={vaccine.location}
               size="small"
               readOnly={isEdit}
             />
@@ -101,6 +104,7 @@ function CardVaccine() {
               className={styles.textarea}
               name=""
               id=""
+              value={vaccine.symptoms}
               cols={30}
               rows={3}
               readOnly={isEdit}

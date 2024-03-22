@@ -1,5 +1,8 @@
+"use client";
 import { Autocomplete, Box, Button, Modal, TextField } from "@mui/material";
 import { listDisease } from "../../../lib/data";
+import { useState } from "react";
+import { revalidatePath, revalidateTag } from "next/cache";
 
 interface formDiseaseInterface {
   open: boolean;
@@ -19,6 +22,39 @@ const style = {
 };
 
 function FormDisease({ open, handleClose }: formDiseaseInterface) {
+  const [selectedOption, setSelectedOption] = useState(null);
+  const handleOptionChange = (event, newValue) => {
+    setSelectedOption(newValue); // Update the selected option in state
+  };
+
+  const handleSubmit = async () => {
+    try {
+      // Assuming you have an object where you want to add the selected option
+      const dataToSend = {
+        selectedOption: selectedOption,
+      };
+
+      const data = {
+        name: dataToSend,
+        totalOfInjection: 0,
+        vaccination: [],
+        healthRecord: "65fc93744386823616cf5741",
+      };
+
+      await fetch("http://localhost:3055/api/disease", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      revalidateTag("disease");
+      handleClose();
+    } catch (error) {
+      console.error("Error submitting data:", error);
+    }
+  };
   return (
     <Modal
       open={open}
@@ -32,6 +68,8 @@ function FormDisease({ open, handleClose }: formDiseaseInterface) {
           id="combo-box-demo"
           options={listDisease}
           sx={{ width: "100%" }}
+          value={selectedOption}
+          onChange={handleOptionChange}
           renderInput={(params) => (
             <TextField {...params} label="Name Of Disease" />
           )}
@@ -43,7 +81,7 @@ function FormDisease({ open, handleClose }: formDiseaseInterface) {
             marginTop: "2rem",
           }}
         >
-          <Button onClick={handleClose}>Save</Button>
+          <Button onClick={handleSubmit}>Save</Button>
           <Button onClick={handleClose} autoFocus>
             Cancel
           </Button>

@@ -8,12 +8,14 @@ import HealthRecordForm from "@/components/HealthRecord/healthRecordForm";
 import HealthRecordDetails from "@/components/HealthRecord/heathRecordDetail";
 import axios from "axios";
 import Navbar from "@/components/InsideNavbar/navbar";
+import { revalidatePath } from "next/cache";
 
 const HealthRecordPage = () => {
   const [selectedRecord, setSelectedRecord] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [healthRecords, setHealthRecords] = useState([]);
   const [userId, setUserId] = useState("");
+  const [bool, setbool] = useState(false);
 
   useEffect(() => {
     const storedUserData = localStorage.getItem("user");
@@ -25,14 +27,14 @@ const HealthRecordPage = () => {
     }
 
     fetchHealthRecords(userId);
-  }, [userId]); // Empty dependency array to run this effect only once on mount
+  }, [userId, bool]); // Empty dependency array to run this effect only once on mount
 
   const fetchHealthRecords = async (userId: string) => {
     console.log(userId);
 
     try {
       const response = await axios.get(
-        `http://localhost:3055/api/user/personalHealth/${userId}`,
+        `http://localhost:3055/api/heathRecord/${userId}`,
       );
       setHealthRecords(response.data);
     } catch (error) {
@@ -99,15 +101,20 @@ const HealthRecordPage = () => {
 
     try {
       if (selectedRecord) {
+        console.log(1);
+
         // Update existing health record
         await axios.put(
           `http://localhost:3055/api/heathRecord/${selectedRecord._id}`,
           data,
         );
       } else {
+        console.log(2);
+
         // Add new health record
         await axios.post(`http://localhost:3055/api/heathRecord`, data);
       }
+      setbool(!bool);
       setShowForm(false);
       setSelectedRecord(null);
       // fetchHealthRecords(); // Refresh health records after submission
@@ -164,7 +171,10 @@ const HealthRecordPage = () => {
               initialValues={selectedRecord}
             />
           ) : (
-            <HealthRecordDetails healthRecord={selectedRecord} />
+            <HealthRecordDetails
+              userId={userId}
+              healthRecord={selectedRecord}
+            />
           )}
         </motion.div>
       </div>

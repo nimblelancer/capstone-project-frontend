@@ -12,7 +12,7 @@ import { useState } from "react";
 import Alert from "@/components/Alert/Alert";
 import { listDisease } from "../../../lib/data";
 
-function CardDisease() {
+function CardDisease({ disease }) {
   const [isEdit, setIsEdit] = useState(true);
   const [open, setOpen] = useState(false);
 
@@ -33,6 +33,7 @@ function CardDisease() {
           id="combo-box-demo"
           options={listDisease}
           sx={{ width: "100%" }}
+          value={disease?.name}
           renderInput={(params) => (
             <TextField {...params} label="Name Of Disease" />
           )}
@@ -43,7 +44,7 @@ function CardDisease() {
           color="text.secondary"
           gutterBottom
         >
-          No of injection: 5
+          No of injection: {disease?.totalOfInjection}
         </Typography>
 
         <div
