@@ -33,7 +33,7 @@ const FAQs = () => {
     <>
       {/* <!-- ===== FAQs Start ===== --> */}
       <section id="faqs" className="py-20 lg:py-25 xl:py-30 bg-gray-100">
-        <div className="mt-20 mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
+        <div className="mt-8 mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
           {/* <!-- Section Title Start --> */}
           <SectionHeader
             headerInfo={{
