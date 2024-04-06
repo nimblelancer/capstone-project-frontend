@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Lines from "@/components/Introduction/Lines";
 import ToasterContext from "@/components/Introduction/context/ToastContext";
+import FAQs from "@/components/Introduction/FAQs/faqs";
 
 export const metadata: Metadata = {
   title: "Health Website For Everyone",
@@ -26,6 +27,7 @@ export default function Home() {
       <About />
       <Integration />
       <Contact />
+      <FAQs/>
       <Footer />
     </main>
   );

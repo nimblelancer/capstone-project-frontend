@@ -1,27 +1,26 @@
 'use client'
 import React from "react";
 import SectionHeader from "../Common/SectionHeader";
+import { Container, Typography } from "@mui/material"; // Assuming you're using Material-UI for a more modern look
 
 const Feature = () => {
   return (
     <>
       {/* <!-- ===== Features Start ===== --> */}
-      <section id="features" className="py-20 lg:py-25 xl:py-30">
-        <div className="mt-20 mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
+      <section id="features" className="py-20 lg:py-25 xl:py-30 bg-gray-100">
+        <Container maxWidth="lg" style={{ marginTop: "40px" }}>
           {/* <!-- Section Title Start --> */}
           <SectionHeader
             headerInfo={{
               title: "Health Record",
-              subtitle: "THE FUTUTE OF MEDIC!",
-              description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-            convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam
-            ante in maximus.`,
+              subtitle: "THE FUTURE OF MEDIC!",
+              description: `At our website, we believe that every individual deserves access to reliable and up-to-date information about their health and well-being. Our mission is to empower you to take control of your health journey by providing comprehensive resources, expert advice, and a supportive community.`,
             }}
           />
-
-        </div>
+        </Container>
       </section>
     </>
   );
 };
+
 export default Feature;
