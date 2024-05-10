@@ -1,4 +1,3 @@
-"use client";
 import { motion } from "framer-motion";
 
 type HeaderInfo = {
@@ -32,14 +31,16 @@ const SectionHeader = ({ headerInfo }: { headerInfo: HeaderInfo }) => {
         className="animate_top mx-auto text-center"
       >
         <div className="mb-4 inline-block rounded-full bg-zumthor px-4.5 py-1.5 dark:border dark:border-strokedark dark:bg-blacksection">
-          <span className="text-sectiontitle font-medium text-black dark:text-white">
+          <span className="text-2xl font-medium text-black dark:text-white">{/* Increase font size to text-2xl */}
             {title}
           </span>
         </div>
-        <h2 className="mx-auto mb-4 text-3xl font-bold text-black dark:text-white md:w-4/5 xl:w-1/2 xl:text-sectiontitle3">
+        <h2 className="mx-auto mb-4 text-4xl font-bold text-black dark:text-white md:w-4/5 xl:w-1/2 xl:text-sectiontitle3">{/* Increase font size to text-4xl */}
           {subtitle}
         </h2>
-        <p className="mx-auto md:w-4/5 lg:w-3/5 xl:w-[46%]">{description}</p>
+        <p className="mx-auto text-lg md:w-4/5 lg:w-3/5 xl:w-[46%]">{/* Increase font size to text-lg */}
+          {description}
+        </p>
       </motion.div>
       {/* <!-- Section Title End --> */}
     </>
@@ -47,3 +48,4 @@ const SectionHeader = ({ headerInfo }: { headerInfo: HeaderInfo }) => {
 };
 
 export default SectionHeader;
+
